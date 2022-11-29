@@ -26,7 +26,6 @@ function initFeldspar() {
   return function feldspar(files: Files, metalsmith: Metalsmith, done: any) {
     setImmediate(done);
 
-    let lastDir = "";
     // eslint-disable-next-line prefer-const
     let renamedFiles: { [key: string]: string } = {};
     let categoryTitle = "";
@@ -61,10 +60,6 @@ function initFeldspar() {
           contentStr = contentStr.replace(re, "");
         });
         data.contents = Buffer.from(contentStr);
-
-        if (dir != lastDir) {
-          lastDir = dir;
-        }
 
         let newPath = newFilename;
 
